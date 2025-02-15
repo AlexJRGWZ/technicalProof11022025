@@ -34,10 +34,7 @@ public class TPProductsController {
     }
     
     @GetMapping("/findByBrandIdAndProductIdAndStartDate/{brand_id}/{product_id}/{start_date}")
-    public List<TPProductsDAO> findByBrandIdAndProductIdAndStartDate(@PathVariable Integer brand_id,
-    																 @PathVariable Integer product_id,
-    																 @PathVariable LocalDateTime start_date) {
-    	
+    public List<TPProductsDAO> findByBrandIdAndProductIdAndStartDate(@PathVariable Integer brand_id, @PathVariable Integer product_id, @PathVariable LocalDateTime start_date) {
     	try{
     		List<TPProductsModel> listTPProductsModel = tpProductsServices.findByBrandIdAndProductIdAndStartDate(brand_id,product_id,start_date);
 	    	List<TPProductsDTO> listTPProductsDTO = this.convertFromTPProductsModelListToTPProductsDTOList(listTPProductsModel);

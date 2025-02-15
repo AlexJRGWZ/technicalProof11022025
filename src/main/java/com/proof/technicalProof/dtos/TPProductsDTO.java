@@ -15,9 +15,7 @@ public class TPProductsDTO {
     private String curr;
 	
 	public TPProductsDTO() {}
-	public TPProductsDTO(LocalDateTime start_date,LocalDateTime end_date,Integer price_list,
-						Integer product_id, Integer priority, BigDecimal price, String curr,
-						Integer brand_id) {
+	public TPProductsDTO(LocalDateTime start_date,LocalDateTime end_date,Integer price_list,Integer product_id, Integer priority, BigDecimal price, String curr,Integer brand_id) {
 		this.start_date = start_date;
     	this.end_date = end_date;
     	this.price_list = price_list;

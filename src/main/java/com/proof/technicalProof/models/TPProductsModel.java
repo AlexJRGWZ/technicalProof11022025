@@ -46,9 +46,7 @@ public class TPProductsModel {
     private TPGroupsModel tpGroup; // Asegúrate de que esta entidad esté bien definida
 
     public TPProductsModel() {}
-    public TPProductsModel(LocalDateTime start_date, LocalDateTime end_date,Integer price_list,
-    						Integer product_id, Integer priority, BigDecimal price, String curr,
-    						TPGroupsModel tpGroup) {
+    public TPProductsModel(LocalDateTime start_date, LocalDateTime end_date,Integer price_list,Integer product_id, Integer priority, BigDecimal price, String curr,TPGroupsModel tpGroup) {
     	this.start_date = start_date;
     	this.end_date = end_date;
     	this.price_list = price_list;

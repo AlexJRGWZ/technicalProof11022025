@@ -13,8 +13,7 @@ public class TPProductsDAO {
 	private BigDecimal price;
 	
 	public TPProductsDAO() {}
-	public TPProductsDAO(LocalDateTime start_date,LocalDateTime end_date,Integer price_list,
-						Integer product_id, BigDecimal price, Integer brand_id) {
+	public TPProductsDAO(LocalDateTime start_date,LocalDateTime end_date,Integer price_list,Integer product_id, BigDecimal price, Integer brand_id) {
 		this.start_date = start_date;
     	this.end_date = end_date;
     	this.price_list = price_list;
