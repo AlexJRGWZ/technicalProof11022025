@@ -21,6 +21,10 @@ public class TPProductsController {
 	@Autowired
     private TPProductsServices tpProductsServices;
 
+	/**
+	 * Method of the controller to obtain the DTOObjects of all the products on the database
+	 * @return List with DTO of all the products of the database
+	 */
     @GetMapping("/all")
     public List<TPProductsDTO> obtainAllGroups() {
     	try{
@@ -33,10 +37,17 @@ public class TPProductsController {
     	}
     }
     
-    @GetMapping("/findByBrandIdAndProductIdAndStartDate/{brand_id}/{product_id}/{start_date}")
-    public List<TPProductsDAO> findByBrandIdAndProductIdAndStartDate(@PathVariable Integer brand_id, @PathVariable Integer product_id, @PathVariable LocalDateTime start_date) {
+    /**
+     * EndPoint to obtain a list of DAO of the products with fields required (price_list,brand_id,price,brand_id,dates and product_id)
+     * @param brand_id the group id
+     * @param product_id the product id
+     * @param apply_date the apply date for this query
+     * @return list of products that results coincidents with the query realized
+     */
+    @GetMapping("/findByBrandIdAndProductIdAndStartDate/{brand_id}/{product_id}/{apply_date}")
+    public List<TPProductsDAO> findByBrandIdAndProductIdAndStartDate(@PathVariable Integer brand_id, @PathVariable Integer product_id, @PathVariable LocalDateTime apply_date) {
     	try{
-    		List<TPProductsModel> listTPProductsModel = tpProductsServices.findByBrandIdAndProductIdAndStartDate(brand_id,product_id,start_date);
+    		List<TPProductsModel> listTPProductsModel = tpProductsServices.findByBrandIdAndProductIdAndStartDate(brand_id,product_id,apply_date);
 	    	List<TPProductsDTO> listTPProductsDTO = this.convertFromTPProductsModelListToTPProductsDTOList(listTPProductsModel);
 	    	return this.convertFromTPProductsDTOListToTPProductsDAOList(listTPProductsDTO);
     	}catch(Exception e) {
@@ -46,6 +57,11 @@ public class TPProductsController {
     	}
     }
     
+    /**
+     * Method to transform a list of model products on DTOs equivalents
+     * @param listTPProductsModel list of model of products
+     * @return list of DTOs of products equivalent at the list passed as param of models
+     */
     private List<TPProductsDTO> convertFromTPProductsModelListToTPProductsDTOList(List<TPProductsModel> listTPProductsModel){
     	List<TPProductsDTO> listTPProductsDTO = new ArrayList<TPProductsDTO>();
     	for(int i = 0; i < listTPProductsModel.size(); i++) {
@@ -64,6 +80,11 @@ public class TPProductsController {
     	return listTPProductsDTO;
     }
     
+    /**
+     * Method to transform a list of DTO products on DAOs equivalents
+     * @param listTPProductsDTO list of DTO of products
+     * @return list of DAOs of products equivalent at the list passed as param of DTOs
+     */
     private List<TPProductsDAO> convertFromTPProductsDTOListToTPProductsDAOList(List<TPProductsDTO> listTPProductsDTO){
     	List<TPProductsDAO> listTPProductsDAO = new ArrayList<TPProductsDAO>();
     	for(int i = 0; i < listTPProductsDTO.size(); i++) {

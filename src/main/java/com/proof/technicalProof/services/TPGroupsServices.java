@@ -8,6 +8,10 @@ import com.proof.technicalProof.models.TPGroupsModel;
 
 @Service
 public interface TPGroupsServices {
+	/**
+	 * Method to obtain all groups on model form from database
+	 * @return list with all the groups on database on model form
+	 */
 	List<TPGroupsModel> obtainAllGroups();
 	
 }

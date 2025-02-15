@@ -27,9 +27,9 @@ public class TPProductsServicesImpl implements TPProductsServices{
 	}
 
 	@Override
-	public List<TPProductsModel> findByBrandIdAndProductIdAndStartDate(Integer brand_id, Integer product_id, LocalDateTime start_date) {
+	public List<TPProductsModel> findByBrandIdAndProductIdAndStartDate(Integer brand_id, Integer product_id, LocalDateTime apply_date) {
 		try{
-			return tpProductsRepository.findByBrandIdAndProductIdAndStartDate(brand_id, product_id, start_date);
+			return tpProductsRepository.findByBrandIdAndProductIdAndStartDate(brand_id, product_id, apply_date);
 		}catch(Exception e) {
 	    	System.err.println("ERROR on TPProductsServicesImpl:findByBrandIdAndProductIdAndStartDate: \n ");
 	    	e.printStackTrace();

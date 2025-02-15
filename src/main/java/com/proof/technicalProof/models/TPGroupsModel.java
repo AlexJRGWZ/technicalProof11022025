@@ -5,6 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -17,9 +18,11 @@ import jakarta.persistence.Table;
 @Table(name = "TECHNICALPROOF_GROUPS")
 public class TPGroupsModel {
 	@Id
+	@Column(name = "group_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer group_id;
 
+	@Column(name = "group_name")
     private String group_name;
     
     @OneToMany(mappedBy = "tpGroup", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,26 +39,14 @@ public class TPGroupsModel {
     ///////////
     //SETTERS//
     ///////////
-    public void setGroup_id(Integer group_id) {
-    	this.group_id = group_id;
-    }
-    public void setGroup_name(String group_name) {
-    	this.group_name = group_name;
-    }
-    public void setTpproducts(List<TPProductsModel> tpproducts) {
-    	this.tpproducts = tpproducts;
-    }
+    public void setGroup_id(Integer group_id) {this.group_id = group_id;}
+    public void setGroup_name(String group_name) {this.group_name = group_name;}
+    public void setTpproducts(List<TPProductsModel> tpproducts) {this.tpproducts = tpproducts;}
     
     ///////////
     //GETTERS//
     ///////////
-    public Integer getGroup_id() {
-    	return this.group_id;
-    }
-    public String getGroup_name() {
-    	return this.group_name;
-    }
-    public List<TPProductsModel> getTPProducts(){
-    	return this.tpproducts;
-    }
+    public Integer getGroup_id() {return this.group_id;}
+    public String getGroup_name() {return this.group_name;}
+    public List<TPProductsModel> getTPProducts(){return this.tpproducts;}
 }

@@ -13,6 +13,17 @@ import com.proof.technicalProof.models.TPProductsModel;
 @Repository
 public interface TPProductsRepository extends JpaRepository<TPProductsModel, Long>  {
 	
-	@Query(value="SELECT * FROM TECHNICALPROOF_PRODUCTS WHERE brand_id = :brand_id AND product_id = :product_id AND start_date >= :start_date AND :start_date < end_date",nativeQuery=true)
-	List<TPProductsModel> findByBrandIdAndProductIdAndStartDate(@Param("brand_id") Integer brand_id,@Param("product_id") Integer product_id,@Param("start_date") LocalDateTime start_date);
+	/**
+	 * Method to launch a query around of database
+	 * This query will be, with the specifications, the next:
+	 *     SELECT *
+	 *     FROM TECHNICALPROOF_PRODUCTS
+	 *     WHERE brand_id = :brand_id AND product_id = :product_id AND start_date >= :apply_date AND :apply_date < end_date
+	 * @param brand_id id of the group
+	 * @param product_id id of the product
+	 * @param apply_date date when this query is launched (with hour) 
+	 * @return list of products (on model form) that are coincidents with the query launched
+	 */
+	@Query(value="SELECT * FROM TECHNICALPROOF_PRODUCTS WHERE brand_id = :brand_id AND product_id = :product_id AND start_date >= :apply_date AND :apply_date < end_date",nativeQuery=true)
+	List<TPProductsModel> findByBrandIdAndProductIdAndStartDate(@Param("brand_id") Integer brand_id,@Param("product_id") Integer product_id,@Param("apply_date") LocalDateTime apply_date);
 }

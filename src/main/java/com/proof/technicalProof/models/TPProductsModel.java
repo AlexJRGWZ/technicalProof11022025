@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TECHNICALPROOF_PRODUCTS")
-@IdClass(TPProductsModelId.class) // Usar la clase de clave compuesta de la tabla
+@IdClass(TPProductsModelId.class) // Is used for the composed primary key on schema of database for this table
 public class TPProductsModel {
 	
     @Column(name = "start_date")
@@ -25,25 +25,25 @@ public class TPProductsModel {
     
     @Id
     @Column(name = "price_list")
-    private Integer price_list; // Cambiado a Integer
+    private Integer price_list;
     
     @Id
-    @Column(name = "product_id") // Especifica el nombre de la columna
+    @Column(name = "product_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer product_id; // Cambiado a Integer
+    private Integer product_id;
 
     @Column(name = "priority")
-    private Integer priority; // Cambiado a Integer
+    private Integer priority;
     
     @Column(name = "price")
-    private BigDecimal price; // Cambiado a BigDecimal
+    private BigDecimal price;
 
     @Column(name = "curr")
     private String curr;
 
     @ManyToOne
     @JoinColumn(name = "brand_id", nullable = false)
-    private TPGroupsModel tpGroup; // Asegúrate de que esta entidad esté bien definida
+    private TPGroupsModel tpGroup;
 
     public TPProductsModel() {}
     public TPProductsModel(LocalDateTime start_date, LocalDateTime end_date,Integer price_list,Integer product_id, Integer priority, BigDecimal price, String curr,TPGroupsModel tpGroup) {

@@ -18,6 +18,10 @@ public class TPGroupsController {
 	@Autowired
     private TPGroupsServices tpGroupsServices;
 
+	/**
+	 * Method to obtain all groups of the databases
+	 * @return list with the DTOs objects of groups from databases
+	 */
     @GetMapping("/all")
     public List<TPGroupsDTO> obtainAllGroups() {
         try{
@@ -31,7 +35,11 @@ public class TPGroupsController {
     }
     
     
-    //CONVERT TPGROUPSMODEL TO TPGROUPSDTO
+    /**
+     * Method to transform a list of model groups on DTOs equivalents
+     * @param listTPGroupsModel list of model of groups
+     * @return list of DTOs of groups equivalent at the list passed as param of model
+     */
     private List<TPGroupsDTO> convertListTPGroupsModelToDTO(List<TPGroupsModel> listTPGroupsModel){
     	List<TPGroupsDTO> listTPGroupsDTO = new ArrayList<TPGroupsDTO>();
     	for(int i = 0; i < listTPGroupsModel.size(); i++) {

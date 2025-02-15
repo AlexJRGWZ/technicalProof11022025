@@ -13,21 +13,13 @@ public class TPGroupsDTO {
 	///////////
 	//SETTERS//
 	///////////
-	public void setGroup_id(Integer group_id) {
-		this.group_id = group_id;
-	}
-	public void setGroup_name(String group_name) {
-		this.group_name = group_name;
-	}
+	public void setGroup_id(Integer group_id) {this.group_id = group_id;}
+	public void setGroup_name(String group_name) {this.group_name = group_name;}
 	
 	///////////
 	//GETTERS//
 	///////////
-	public Integer getGroup_id() {
-		return this.group_id;
-	}
-	public String getGroup_name() {
-		return this.group_name;
-	}
+	public Integer getGroup_id() {return this.group_id;}
+	public String getGroup_name() {return this.group_name;}
 
 }
